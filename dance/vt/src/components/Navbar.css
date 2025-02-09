@@ -1,0 +1,402 @@
+/* General Body and Font Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #1a202c; /* Dark background for better contrast */
+    color: white;
+  }
+  
+  /* Navbar */
+  .navbar {
+    background: linear-gradient(to right, #9c27b0, #673ab7, #f50057); /* Gradient Navbar */
+    color: white;
+    padding: 16px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  .navbar .logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar .logo img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 15px;
+  }
+  
+  .navbar .nav-links a {
+    color: white;
+    margin-right: 20px;
+    font-size: 16px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .navbar .nav-links a:hover {
+    color: #ffcc00; /* Golden hover effect */
+  }
+  
+  .navbar .bell-icon {
+    position: relative;
+  }
+  
+  .navbar .bell-icon .notification-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: #e34b4b;
+    color: white;
+    border-radius: 50%;
+    font-size: 12px;
+    padding: 5px;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    background-color: #111111;
+    color: white;
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    top: 75px;
+    left: 0;
+    padding-top: 30px;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .sidebar a {
+    display: block;
+    text-decoration: none;
+    color: #a5a5a5;
+    padding: 10px;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .sidebar a:hover {
+    background-color: #383838;
+    color: #f0f0f0;
+  }
+  
+  .sidebar .sidebar-header {
+    padding: 15px;
+    font-size: 18px;
+    color: #ffffff;
+    font-weight: bold;
+  }
+  
+  /* Main Content */
+  .main-content {
+    margin-left: 260px; /* Account for Sidebar */
+    padding: 30px;
+    background-color: #222;
+    min-height: 100vh;
+  }
+  
+  /* Statistics section */
+  .stats-box {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+  }
+  
+  .stats-box h3 {
+    font-size: 22px;
+    margin-bottom: 5px;
+  }
+  
+  .stats-box p {
+    font-size: 14px;
+    color: #bbbbbb;
+  }
+  
+  /* Courses Grid */
+  .courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .course-card {
+    background-color: #ffffff;
+    color: #333;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    overflow: hidden;
+  }
+  
+  .course-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .course-card img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+  }
+  
+  .course-card img:hover {
+    opacity: 0.8;
+  }
+  
+  .course-card .course-content {
+    padding: 20px;
+  }
+  
+  .course-card .course-content h4 {
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+  
+  .course-card .course-content p {
+    font-size: 14px;
+    color: #777777;
+  }
+  
+  /* Video Section */
+  .video-section iframe {
+    border-radius: 12px;
+    width: 100%;
+    height: 400px;
+  }
+  
+  /* Notification Dropdown */
+  .notification-dropdown {
+    background-color: white;
+    color: #333;
+    padding: 15px;
+    max-width: 300px;
+    border-radius: 8px;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .notification-dropdown .notif-item {
+    margin-bottom: 10px;
+  }
+  
+  .notification-dropdown .notif-item span {
+    font-size: 12px;
+    color: #888888;
+  }
+  
+  .notification-dropdown .notif-item:last-child {
+    margin-bottom: 0;
+  }
+  
+
+  /* Navbar.css - Custom CSS */
+
+/* Custom Navbar Styles */
+@media (max-width: 640px) {
+    .navbar {
+      flex-direction: column;
+      padding: 16px;
+      text-align: center;
+    }
+  
+    .sidebar {
+      width: 100%;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+    }
+  }
+  
+  @media (max-width: 1024px) {
+    .main-content {
+      padding: 20px;
+    }
+  
+    .sidebar {
+      width: 220px;
+    }
+  }
+  
+  /* You can adjust sidebar width for small screens */
+  @media (max-width: 768px) {
+    .ml-64 {
+      margin-left: 56px;
+    }
+  
+    .lg\:ml-72 {
+      margin-left: 56px;
+    }
+  
+    .sm\:ml-52 {
+      margin-left: 0;
+    }
+  }
+  
+  /* For the Card with Courses and Today Classes */
+  @media (max-width: 640px) {
+    .courses-card {
+      flex-direction: column;
+      width: 100%;
+    }
+  }
+  
+  /* Media Queries for responsiveness */
+  @media (max-width: 768px) {
+    .sidebar {
+      transform: translateX(-250px);
+    }
+  
+    .sidebar.open {
+      transform: translateX(0);
+    }
+  
+    .main-content {
+      margin-left: 0;
+    }
+  }
+  
+  /* Navbar Styles */
+.bg-gradient-to-r {
+    background: linear-gradient(90deg, #8e44ad, #3498db, #e91e63);
+  }
+  
+  .max-w-7xl {
+    max-width: 1280px;
+  }
+  
+  .text-white {
+    color: white;
+  }
+  
+  .font-bold {
+    font-weight: bold;
+  }
+  
+  .text-lg, .text-2xl {
+    font-size: 1.125rem; /* You can adjust this to your needs */
+  }
+  
+  /* Sidebar Styles */
+  aside {
+    width: 64px;
+    position: fixed;
+    top: 4rem; /* Adjust to ensure it's below the navbar */
+    left: 0;
+    height: calc(100vh - 4rem);
+    background-color: #2d2d2d; /* Darker sidebar for better visibility */
+    z-index: 100;
+  }
+  
+  .sidebar {
+    /* Keeping everything aligned and prevent shaking */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .sidebar .item {
+    transition: background-color 0.2s ease;
+  }
+  
+  .sidebar .item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .flex {
+    display: flex;
+  }
+  
+  /* Main Content Styles */
+  .ml-64 {
+    margin-left: 16rem;
+  }
+  
+  .flex-1 {
+    flex: 1;
+  }
+  
+  .bg-gradient-to-b {
+    background: linear-gradient(180deg, #212121, #121212);
+    min-height: 100vh; /* Full viewport height */
+  }
+  
+  .p-8 {
+    padding: 2rem; /* Ensure even spacing around the content */
+  }
+  
+  .pt-24 {
+    padding-top: 6rem;
+  }
+  
+  .text-white {
+    color: white;
+  }
+  
+  .bg-gray-800 {
+    background-color: #424242;
+  }
+  
+  .text-gray-400, .text-xs {
+    color: #bdbdbd; /* Lighter gray for readability */
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive columns */
+    gap: 2rem;
+  }
+  
+  .img-fluid {
+    object-fit: cover; /* Ensure image scales well without distortion */
+  }
+  
+  /* Responsive for smaller screens */
+  @media (max-width: 1024px) {
+    .ml-64 {
+      margin-left: 0; /* Remove the margin for small screen devices */
+    }
+    .w-full {
+      width: 100%;
+    }
+  }
+  
+  /* Flex adjustments for notifications and dropdown */
+  .relative {
+    position: relative;
+  }
+  
+  .absolute {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  .bg-red-500 {
+    background-color: #e74c3c;
+  }
+  
+  .shadow-lg {
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+  }
+  
+  .block {
+    display: block;
+  }
+  
+  /* Proper styling for clickable links */
+  .hover\:text-yellow-400:hover {
+    color: #f4e04d;
+  }
+  
