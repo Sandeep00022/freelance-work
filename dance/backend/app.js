@@ -9,6 +9,7 @@ import connectDb from "./db/db.js";
 import userRouter from "./routes/user.route.js";
 import categoryRouter from "./routes/category.routes.js";
 import adminRouter from "./routes/admin.routes.js";
+import becomeMentorRouter from "./routes/becomeMentor.route.js";
 
 const app = express();
 app.use(express.json());
@@ -16,6 +17,14 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(cors());
 
+app.use(
+  cors({
+    origin: "*",
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    allowedHeaders: "Content-Type,Authorization",
+    credentials: true,
+  })
+);
 // MongoDB connection
 connectDb();
 
@@ -27,5 +36,6 @@ app.get("/", (req, res) => {
 app.use("/user", userRouter);
 app.use("/category", categoryRouter);
 app.use("/admin", adminRouter);
+app.use("/becomeMentor", becomeMentorRouter);
 
 export default app;
