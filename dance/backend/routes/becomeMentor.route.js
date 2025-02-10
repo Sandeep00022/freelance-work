@@ -15,16 +15,16 @@ const router = express.Router();
 router.post("/apply", authUser, applyToBecomeMentor);
 
 // Route for admins to get the list of mentor applications
-router.get("/applications", authUser, authorize, getMentorApplications);
+router.get("/applications", authUser, authorize(["admin"]), getMentorApplications);
 
 // Route to get details of a specific mentor application
-router.get("/applications/:id", authUser, authorize, getMentorApplicationById);
+router.get("/applications/:id", authUser, authorize(["admin"]), getMentorApplicationById);
 
 // Route for admins to update application status
 router.put(
   "/applications/:id/status",
   authUser,
-  authorize,
+  authorize(["admin"]),
   updateMentorApplicationStatus
 );
 

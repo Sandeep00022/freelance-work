@@ -61,7 +61,7 @@ export const logOut = (req, res, next) => {
 export const getInstructors = async (req, res) => {
   try {
     const instructors = await userModel
-      .find({ role: "instructor" })
+      .find({ role: "instructor"  })
       .select("-password");
 
     if (instructors.length === 0) {

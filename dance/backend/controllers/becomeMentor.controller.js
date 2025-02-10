@@ -54,12 +54,15 @@ export const applyToBecomeMentor = async (req, res) => {
 };
 
 export const getMentorApplications = async (req, res) => {
+  console.log("API hit: getMentorApplications");
   try {
     const applications = await BecomeMentor.find().populate("userId");
+    console.log("Applications found:", applications);
     res
       .status(200)
       .json({ message: "List of mentor applications", applications });
   } catch (error) {
+    console.error("Error fetching applications:", error);
     res.status(500).json({ message: "Server error", error: error.message });
   }
 };
@@ -80,7 +83,6 @@ export const getMentorApplicationById = async (req, res) => {
     res.status(500).json({ message: "Server error", error: error.message });
   }
 };
-
 
 export const updateMentorApplicationStatus = async (req, res) => {
   try {
@@ -104,9 +106,19 @@ export const updateMentorApplicationStatus = async (req, res) => {
 
     // If approved, update user's role
     if (status === "approved") {
-      const user = await UserModel.findById(application.userId);
+      const user = await userModel.findById(application.userId);
       if (user) {
-        user.role = "instructor";
+        if (user.role === "admin") {
+          return res.status(400).json({ message: "User is already an admin" });
+        } else {
+          user.role = "instructor";
+        }
+        await user.save();
+      }
+    } else if (status === "rejected" || status === "inprogress") {
+      const user = await userModel.findById(application.userId);
+      if (user && user.role !== "admin") {
+        user.role = "user";
         await user.save();
       }
     }
@@ -117,7 +129,8 @@ export const updateMentorApplicationStatus = async (req, res) => {
     });
   } catch (error) {
     console.error("Error updating mentor application status:", error);
-    return res.status(500).json({ message: "Server error", error: error.message });
+    return res
+      .status(500)
+      .json({ message: "Server error", error: error.message });
   }
 };
-
